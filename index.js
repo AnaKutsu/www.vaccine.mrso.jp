@@ -28,7 +28,7 @@ const isReservable = async (driver) => {
 	return await driver.findElement(By.id('VisitnoAuthName'));
 };
 
-// 予約ページへ入場可能かチェック
+// セッションリストの追加
 const addCookie = async (cookie) => {
 	isCookieExists[cookie.value] = true;
 	console.log('    Got ' + cookie.name + ': ' + cookie.value);
@@ -117,10 +117,14 @@ const navigate = async (driver) => {
 					await driver.navigate().to(urlDummy);
 					await driver.manage().deleteCookie(cookieName);
 					reservable = await isReservable(driver);
-					let cookie = await driver.manage().getCookie(cookieName);
-					if (!isCookieExists[cookie.value]) {
-						await addCookie(cookie);
+					if (reservable) {
 						break;
+					} else {
+						let cookie = await driver.manage().getCookie(cookieName);
+						if (!isCookieExists[cookie.value]) {
+							await addCookie(cookie);
+							break;
+						}
 					}
 				}
 			}
