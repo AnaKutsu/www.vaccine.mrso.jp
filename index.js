@@ -25,7 +25,12 @@ capabilities.set('chromeOptions', {
 // 予約ページへ入場可能かチェック
 const isReservable = async (driver) => {
 	await driver.navigate().to(urlEntrance);
-	return await driver.findElement(By.id('VisitnoAuthName'));
+	try {
+		return await driver.findElement(By.id('VisitnoAuthName'));
+	} catch(e) {
+		return  false;
+	}
+	
 };
 
 // セッションリストの追加
@@ -101,7 +106,7 @@ const navigate = async (driver) => {
 				reservable = await isReservable(driver);
 				// 新しいセッションが発行されたらリストに追加
 				let c = await driver.manage().getCookie(cookieName);
-				if (!isCookieExists[c.value]) {
+				if (c && !isCookieExists[c.value]) {
 					await addCookie(c);
 				}
 				// 予約可能ならループ終了
@@ -121,7 +126,7 @@ const navigate = async (driver) => {
 						break;
 					} else {
 						let cookie = await driver.manage().getCookie(cookieName);
-						if (!isCookieExists[cookie.value]) {
+						if (cookie && !isCookieExists[cookie.value]) {
 							await addCookie(cookie);
 							break;
 						}
