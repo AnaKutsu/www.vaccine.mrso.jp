@@ -5,8 +5,8 @@ const capabilities = Capabilities.chrome();
 const valCityCode = '';
 const valTicketNumber = '';
 const valBirthYear = '';
-const valBirthMonth = '';
-const valBirthDay = '';
+const valBirthMonth = ''; // need leading zero (MM)
+const valBirthDay = ''; // need leading zero (DD)
 const cookieName = 'akavpwr_www.vaccine.mrso.jp';
 const urlEntrance = 'https://www.vaccine.mrso.jp/sdftokyo/VisitNumbers/visitnoAuth/';
 const urlDummy = 'https://www.vaccine.mrso.jp/favicon.ico';
@@ -53,9 +53,9 @@ const navigate = async (driver) => {
 		let elmSubmit = await elmForm.findElement(By.xpath("//button[@type='submit']"));
 		await elmName.sendKeys(valCityCode);
 		await elmVisitno.sendKeys(valTicketNumber);
-		await elmYear.findElement(By.xpath("//option[. = '" + valBirthYear + "']")).click();
-		await elmMonth.findElement(By.xpath("//option[. = '" + valBirthMonth + "']")).click();
-		await elmDay.findElement(By.xpath("//option[. = '" + valBirthDay +"']")).click();
+		await elmYear.findElement(By.xpath("//option[@value = '" + valBirthYear + "']")).click();
+		await elmMonth.findElement(By.xpath("//option[@value = '" + valBirthMonth + "']")).click();
+		await elmDay.findElement(By.xpath("//option[@value = '" + valBirthDay +"']")).click();
 		await elmSubmit.click();
 	}
 	await driver.wait(until.titleContains('接種者情報確認'));
