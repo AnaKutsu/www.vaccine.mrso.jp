@@ -1,0 +1,49 @@
+{
+  "name": "www.vaccine.mrso.jp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "concat-map": "^0.0.1",
+    "balanced-match": "^1.0.2",
+    "core-util-is": "^1.0.2",
+    "fs.realpath": "^1.0.0",
+    "brace-expansion": "^1.1.11",
+    "glob": "^7.1.7",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "isarray": "^1.0.0",
+    "minimatch": "^3.0.4",
+    "once": "^1.4.0",
+    "immediate": "^3.0.6",
+    "jszip": "^3.7.0",
+    "lie": "^3.3.0",
+    "path-is-absolute": "^1.0.1",
+    "readable-stream": "^2.3.7",
+    "rimraf": "^3.0.2",
+    "pako": "^1.0.11",
+    "safe-buffer": "^5.1.2",
+    "process-nextick-args": "^2.0.1",
+    "string_decoder": "^1.1.1",
+    "selenium-webdriver": "^4.0.0-beta.4",
+    "set-immediate-shim": "^1.0.1",
+    "util-deprecate": "^1.0.2",
+    "tmp": "^0.2.1",
+    "ws": "^7.5.3",
+    "wrappy": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnaKutsu/www.vaccine.mrso.jp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnaKutsu/www.vaccine.mrso.jp/issues"
+  },
+  "homepage": "https://github.com/AnaKutsu/www.vaccine.mrso.jp#readme"
+}
